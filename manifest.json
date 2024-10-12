@@ -1,0 +1,17 @@
+{
+  "name": "Digital Clock",
+  "short_name": "Clock",
+  "description": "A simple digital clock.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icons/icon16.png"
+    }
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
