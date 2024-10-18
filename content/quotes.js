@@ -1,27 +1,3 @@
-// import quotes from "./content/quotes.js";
-function updateTime() {
-  const now = new Date();
-  const timeElement = document.getElementById("time");
-  const dateElement = document.getElementById("date");
-
-  const hours = String(now.getHours()).padStart(2, "0");
-  const minutes = String(now.getMinutes()).padStart(2, "0");
-  const seconds = String(now.getSeconds()).padStart(2, "0");
-
-  timeElement.textContent = `${hours}:${minutes}:${seconds}`;
-
-  const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  dateElement.textContent = now.toLocaleDateString(undefined, options);
-}
-
-setInterval(updateTime, 1000);
-updateTime(); // Initial call to avoid delay
-
 const quotes = [
   "The only way to do great work is to love what you do.",
   "Innovation distinguishes between a leader and a follower.",
@@ -114,12 +90,4 @@ const quotes = [
   "Change the way you look at things and the things you look at change. - Wayne Dyer",
 ];
 
-// Function to display a random quote
-function displayRandomQuote() {
-  const quoteContainer = document.getElementById("quote");
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-  quoteContainer.textContent = randomQuote;
-}
-
-// Call the function to display a random quote when the page loads
-window.onload = displayRandomQuote;
+export default quotes;
