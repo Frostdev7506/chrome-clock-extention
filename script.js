@@ -45,16 +45,19 @@ const defaultThemeButton = document.getElementById("default-theme");
 lightThemeButton.addEventListener("click", () => {
   document.body.classList.remove("dark-theme");
   document.body.classList.add("light-theme");
+  localStorage.setItem("theme", "light-theme");
 });
 
 darkThemeButton.addEventListener("click", () => {
   document.body.classList.remove("light-theme");
   document.body.classList.add("dark-theme");
+  localStorage.setItem("theme", "dark-theme");
 });
 
 defaultThemeButton.addEventListener("click", () => {
   document.body.classList.remove("light-theme");
   document.body.classList.remove("dark-theme");
+  localStorage.setItem("theme", "");
 });
 
 // Get the dropdown and add event listener
@@ -62,4 +65,19 @@ const backgroundColorDropdown = document.getElementById("background-color");
 
 backgroundColorDropdown.addEventListener("change", () => {
   document.body.style.backgroundColor = backgroundColorDropdown.value;
+  localStorage.setItem("backgroundColor", backgroundColorDropdown.value);
+});
+
+// Load theme and background color from local storage
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.body.classList.add(savedTheme);
+  }
+
+  const savedBackgroundColor = localStorage.getItem("backgroundColor");
+  if (savedBackgroundColor) {
+    document.body.style.backgroundColor = savedBackgroundColor;
+    backgroundColorDropdown.value = savedBackgroundColor;
+  }
 });

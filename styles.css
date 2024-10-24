@@ -1,3 +1,20 @@
+:root {
+  --background-color-light: #f0f0f0;
+  --background-color-dark: #333;
+  --text-color-light: #333;
+  --text-color-dark: #f0f0f0;
+  --quote-background-light: rgba(255, 255, 255, 0.8);
+  --quote-background-dark: rgba(0, 0, 0, 0.8);
+  --quote-text-light: #333;
+  --quote-text-dark: #f0f0f0;
+  --clock-color-light: #333;
+  --clock-color-dark: #f0f0f0;
+  --date-color-light: rgba(0, 60, 255, 0.903);
+  --date-color-dark: rgba(141, 7, 219, 0.642);
+  --circle-background-light: rgba(0, 60, 255, 0.903);
+  --circle-background-dark: rgba(141, 7, 219, 0.642);
+}
+
 body,
 html {
   margin: 0;
@@ -6,17 +23,11 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  --background-color: linear-gradient(
-    135deg,
-    #1a1a2e,
-    #16213e,
-    #0f3460
-  ); /* Define background color variable */
-  background: var(--background-color); /* Use background color variable */
-  color: #ffffff;
+  background: var(--background-color-light);
+  color: var(--text-color-light);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
-  transition: background 0.5s ease; /* Add smooth transition for background color change */
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 .clock-container {
@@ -37,23 +48,17 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem; /* Increased font size for larger quotes */
+  font-size: 3rem;
   text-align: center;
   line-height: 1.5;
-  background: rgba(
-    240,
-    240,
-    240,
-    0.8
-  ); /* Light background color with transparency */
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  background: var(--quote-background-light);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
-  transition: background-color 0.5s ease; /* Add smooth transition for background color change */
+  transition: background-color 0.5s ease;
 }
 
-/* Styling for the quote marks */
 #quote-start,
 #quote-end {
   font-size: 4rem;
@@ -61,31 +66,27 @@ html {
   margin: 0;
   position: absolute;
   font-style: italic;
-  transition: color 0.5s ease; /* Add smooth transition for color change */
+  transition: color 0.5s ease;
 }
 
-/* Positioning for the start quote */
 #quote-start {
   top: -20px;
   left: -20px;
 }
 
-/* Positioning for the end quote */
 #quote-end {
   bottom: -20px;
   right: -20px;
 }
 
-/* Style for the actual quote text */
 #quote {
-  font-family: "Georgia", serif; /* Elegant serif font */
+  font-family: "Georgia", serif;
   font-weight: 400;
-  color: #333;
-  z-index: 1; /* Make sure the quote text is above the quote marks */
-  transition: color 0.5s ease; /* Add smooth transition for color change */
+  color: var(--quote-text-light);
+  z-index: 1;
+  transition: color 0.5s ease;
 }
 
-/* Adding a subtle animation effect */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -104,30 +105,37 @@ html {
 .clock {
   font-size: 120px;
   font-weight: bold;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 20px #dc0707f3;
   margin-bottom: 20px;
-  transition: color 0.5s ease, text-shadow 0.5s ease; /* Add smooth transition for color and text-shadow change */
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+  background: linear-gradient(
+    135deg,
+    #a90000,
+    #6617dcd5,
+    #7905d1
+  ); /* Add neon gradient background */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Neon effect for clock in dark theme */
 body.dark-theme .clock {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0ff,
     0 0 30px #0ff, 0 0 40px #0ff, 0 0 50px #0ff, 0 0 75px #0ff;
-  color: lightgray; /* Set clock text color to light gray in dark theme */
+  color: var(--clock-color-dark);
 }
 
 .date {
   font-size: 24px;
   opacity: 0.8;
-  transition: color 0.5s ease, opacity 0.5s ease; /* Add smooth transition for color and opacity change */
+  transition: color 0.5s ease, opacity 0.5s ease;
 }
 
 .circle {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--circle-background-light);
   animation: float 15s infinite ease-in-out;
-  transition: background-color 0.5s ease; /* Add smooth transition for background color change */
+  transition: background-color 0.5s ease;
 }
 
 .circle:nth-child(1) {
@@ -193,7 +201,6 @@ body.dark-theme .clock {
   }
 }
 
-/* Styles for the button container */
 .button-container {
   position: fixed;
   bottom: 20px;
@@ -202,9 +209,8 @@ body.dark-theme .clock {
   display: flex;
 }
 
-/* Styles for the buttons */
 .button-container button {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -217,14 +223,13 @@ body.dark-theme .clock {
   border-radius: 5px;
 }
 
-/* Light theme styles */
 body.light-theme {
-  --background-color: #f0f0f0; /* Define background color variable for light theme */
-  color: #333;
+  --background-color: var(--background-color-light);
+  color: var(--text-color-light);
 }
 
 body.light-theme .quote-container {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--quote-background-light);
 }
 
 body.light-theme #quote-start,
@@ -233,30 +238,29 @@ body.light-theme #quote-end {
 }
 
 body.light-theme #quote {
-  color: #333;
+  color: var(--quote-text-light);
 }
 
 body.light-theme .clock {
-  color: #333;
+  color: var(--clock-color-light);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 body.light-theme .date {
-  color: #666;
+  color: var(--date-color-light);
 }
 
 body.light-theme .circle {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--circle-background-light);
 }
 
-/* Dark theme styles */
 body.dark-theme {
-  --background-color: #333; /* Define background color variable for dark theme */
-  color: #f0f0f0;
+  --background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
 }
 
 body.dark-theme .quote-container {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--quote-background-dark);
 }
 
 body.dark-theme #quote-start,
@@ -265,18 +269,18 @@ body.dark-theme #quote-end {
 }
 
 body.dark-theme #quote {
-  color: #f0f0f0;
+  color: var(--quote-text-dark);
 }
 
 body.dark-theme .clock {
-  color: #f0f0f0;
+  color: var(--clock-color-dark);
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 body.dark-theme .date {
-  color: #ccc;
+  color: var(--date-color-dark);
 }
 
 body.dark-theme .circle {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--circle-background-dark);
 }
