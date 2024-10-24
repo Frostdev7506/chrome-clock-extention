@@ -7,11 +7,15 @@
   "permissions": [],
   "action": {
     "default_popup": "index.html",
-    "default_icon": {
-      "16": "icons/icon16.png"
-    }
+    "default_icon": "icons/house-solid.svg"
   },
   "chrome_url_overrides": {
     "newtab": "index.html"
+  },
+  "icons": {
+    "16": "icons/house-solid.svg",
+    "32": "icons/house-solid.svg",
+    "48": "icons/house-solid.svg",
+    "128": "icons/house-solid.svg"
   }
 }

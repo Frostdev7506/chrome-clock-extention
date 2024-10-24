@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Tab</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -30,14 +33,30 @@
 
         </div>
         <div class="quote-container">
-            <p id="quote-start">"</p>
+            <i id="quote-start" class="fas fa-quote-left"></i>
             <p id="quote"></p>
-            <p id="quote-end">"</p>
+            <i id="quote-end" class="fas fa-quote-right"></i>
 
         </div>
     </div>
+    <div class="button-container">
+        <button id="light-theme"><i class="fas fa-sun"></i></button>
+        <button id="dark-theme"><i class="fas fa-moon"></i></button>
+        <button id="default-theme"><i class="fas fa-adjust"></i></button>
+        <select id="background-color">
+            <option value="#f0f0f0">Light Gray</option>
+            <option value="#333">Dark Gray</option>
+            <option value="#0f3460">Blue</option>
+            <option value="#1a1a2e">Dark Blue</option>
+            <option value="#16213e">Navy</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="black">Black</option>
+        </select>
+    </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
 </body>
 
 
